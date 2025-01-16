@@ -4,7 +4,19 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from 'next/image'
 
-export default function LandingPage() {
+// Define type for Testimonial
+type Testimonial = {
+  name: string;
+  quote: string;
+};
+
+// Sample testimonials data with quotes
+const testimonials: Testimonial[] = [
+  { name: "Sarah K.", quote: "Seed of Gratitude has completely changed my outlook on life. I feel more positive and appreciative every day." },
+  { name: "Michael R.", quote: "The daily prompts are so thoughtful. They've helped me discover gratitude in unexpected places." }
+];
+
+const LandingPage: React.FC = () => {
   return (
     <div className="bg-[#f5f0e8] min-h-screen font-serif">
       <header className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
@@ -112,10 +124,7 @@ export default function LandingPage() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">What Our Users Say</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { name: "Sarah K.", quote:  "Seed of Gratitude has completely changed my outlook on life. I feel more positive and appreciative every day." },
-              { name: "Michael R.", quote: "The daily prompts are so thoughtful. They've helped me discover gratitude in unexpected places." }
-            ].map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md">
                 <p className="text-gray-700 mb-4">{`"${testimonial.quote}"`}</p>
                 <p className="text-gray-900 font-semibold">- {testimonial.name}</p>
@@ -136,5 +145,7 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
+
+export default LandingPage;
