@@ -115,9 +115,9 @@ export default function LandingPage() {
             {[
               { name: "Sarah K.", quote:  "Seed of Gratitude has completely changed my outlook on life. I feel more positive and appreciative every day." },
               { name: "Michael R.", quote: 'The daily prompts are so thoughtful. They've helped me discover gratitude in unexpected places.' }
-           ].map((testimonial, index) => (
+            ].map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-               <p className="text-gray-700 mb-4">{`"${testimonial.quote}"`}</p>
+                <p className="text-gray-700 mb-4">{`"${testimonial.quote}"`}</p>
                 <p className="text-gray-900 font-semibold">- {testimonial.name}</p>
               </div>
             ))}
