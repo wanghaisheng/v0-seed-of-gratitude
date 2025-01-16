@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from 'next/image'
 
 export default function LandingPage() {
   return (
@@ -22,7 +23,13 @@ export default function LandingPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Unlock Your Potential With Gratitude</h1>
           <p className="text-xl text-gray-700 mb-8">Discover the power of gratitude and transform your life through mindful journaling.</p>
           <div className="relative inline-block">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GTToisq0Rw6BOYR_JcALsw-OuTAwFNyaGFDv5f5dkoZClc5WGvNmH.webp" alt="Gratitude Journal" className="rounded-2xl shadow-lg max-w-full h-auto" />
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GTToisq0Rw6BOYR_JcALsw-OuTAwFNyaGFDv5f5dkoZClc5WGvNmH.webp"
+              alt="Gratitude Journal"
+              className="rounded-2xl shadow-lg max-w-full h-auto"
+              width={500}
+              height={300}
+            />
           </div>
         </section>
 
@@ -54,10 +61,12 @@ export default function LandingPage() {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {[1, 2, 3, 4, 5, 6].map((index) => (
                   <div key={index} className="relative aspect-[9/16] bg-gray-200 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={`/placeholder.svg?height=640&width=360&text=Screenshot ${index}`}
                       alt={`App Screenshot ${index}`}
                       className="absolute inset-0 w-full h-full object-cover"
+                      width={360}
+                      height={640}
                     />
                   </div>
                 ))}
@@ -104,7 +113,7 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">What Our Users Say</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { name: "Sarah K.", quote: "Seed of Gratitude has completely changed my outlook on life. I feel more positive and appreciative every day." },
+              { name: "Sarah K.", quote: "Seed of Gratitude has completely changed my outlook on life. I feel more positive and appreciative every day.".replace(/"/g, '"') },
               { name: "Michael R.", quote: "The daily prompts are so thoughtful. They've helped me discover gratitude in unexpected places." }
             ].map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md">
@@ -118,7 +127,7 @@ export default function LandingPage() {
 
       <footer className="bg-gray-100 py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-600">&copy; 2023 Seed of Gratitude. All rights reserved.</p>
+          <p className="text-gray-600">© 2023 Seed of Gratitude. All rights reserved.</p>
           <div className="mt-4">
             <a href="#" className="text-gray-600 hover:text-gray-800 mx-2">Privacy Policy</a>
             <a href="#" className="text-gray-600 hover:text-gray-800 mx-2">Terms of Service</a>
@@ -129,4 +138,3 @@ export default function LandingPage() {
     </div>
   )
 }
-
